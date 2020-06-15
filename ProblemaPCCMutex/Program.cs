@@ -28,10 +28,10 @@ namespace ProblemaPCCMutex
         {
             for (int i = 0; i < 5; i++)
             {
-                mutex.WaitOne();
+                mutex.WaitOne(); // down
                 saldo += incremento;
                 Console.WriteLine("Saldo após depósito: {0}", saldo);
-                mutex.Release(1);
+                mutex.Release(1); // up
             }
         }
 
@@ -39,10 +39,10 @@ namespace ProblemaPCCMutex
         {
             for (int i = 0; i < 5; i++)
             {
-                mutex.WaitOne();
+                mutex.WaitOne(); // down
                 saldo -= decremento;
                 Console.WriteLine("Saldo após saque: {0}", saldo);
-                mutex.Release(1);
+                mutex.Release(1); // up
             }
         }
     }
